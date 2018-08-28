@@ -7,22 +7,22 @@ import numpy as np
 LEARNING_RATE_BASE = 0.8
 LEARNING_RATE_DECAY = 0.99
 
-BATCH_SIZE = 64
-IMAGE_HIGTH = 135
-IMAGE_WIDTH = 240
-IMAGE_CHANNELS = 3
+BATCH_SIZE = 64                # batch 大小
+IMAGE_HIGTH = 54               # 图像高
+IMAGE_WIDTH = 96               # 图像宽
+IMAGE_CHANNELS = 3             # 图像通道
 
-OUTPUT_NODES = 2
+OUTPUT_NODES = 2               # 输出类别
 REGULARIZATION_RATE = 0.0001
-TRAINING_STEPS = 15001
-MOVING_AVERAGE_DECAY = 0.99
+TRAINING_STEPS = 15001         # 迭代轮数
+MOVING_AVERAGE_DECAY = 0.99    # 滑动平均率
 
+# 训练模型保存路径，名称
 MODEL_SAVE_PATH = "video_model/"
 MODEL_NAME = "video_model"
 
-orig_path = r'\train_tfrecords'
-train_recorde_path = r"L:\train_tfrecords\train.tfrecord-*"
-# generate_tfrecord(orig_path, train_recorde_path
+# 训练的 tfrecord 路径
+train_recorde_path = r"L:\train_tfrecords\train.tfrecord-*"    
 
 
 # 读取 tfrecord 模型
@@ -81,6 +81,7 @@ def train(path):
 
     imaged = tf.reshape(image, [IMAGE_HIGTH, IMAGE_WIDTH, IMAGE_CHANNELS])
 
+    # 设置 batch 大小
     min_after_dequeue = 10000
     capacity = min_after_dequeue + BATCH_SIZE * 3
     image_batch0, label_batch0 = tf.train.shuffle_batch(
@@ -103,7 +104,7 @@ def train(path):
                                            feed_dict={x: image_batch,
                                                       y_: label_one_hot})
 
-            if i % 10 == 0:
+            if i % 100 == 0:
                 print("after %d training steps,cross entropy on all data is %g" % (i, loss_value))
 
             if i % 1000 == 0:
