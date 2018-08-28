@@ -4,11 +4,23 @@ import os
 import numpy as np
 
 
-IMAGE_HIGTH = 135
-IMAGE_WIDTH = 240
+IMAGE_HIGTH = 54
+IMAGE_WIDTH = 96
 IMAGE_CHANNELS = 3
 
 BATCH_SIZE = 10
+
+# train_data\
+#            cartoon\
+#                    1.jpg
+#                    2.jpg
+#                      .
+#                      .
+#             real\
+#                    1.jpg
+#                    2.jpg
+#                      .
+#                      .
 
 
 def get_path(path):
@@ -105,10 +117,12 @@ def read_tfrecords(path):
 
 
 def main():
-    orig_path = r'L:\test_data'
-    tfrecord_path = r"L:\test_tfrecords"
+    orig_path = r'L:\train_data'                    # 图像数据原始地址
+    tfrecord_path = r"L:\train_tfrecords"           # 保存的 tfrecord 路径
+    generate_tfrecords(orig_path, tfrecord_path)    # 生成 tfrecord 模型
+    
+    # tfrcord 路径
     tfrecord_files = r"L:\train_tfrecords\train.tfrecord-*"
-    generate_tfrecords(orig_path, tfrecord_path)
     # read_tfrecords(tfrecord_files)
 
 
