@@ -47,22 +47,3 @@ if __name__=="__main__":
 
 
 
-
-    '''while cap.isOpened() and counter<=frame_count:
-        ret, frame = cap.read()
-        gray = cv.cvtColor(frame,cv.COLOR_BGR2GRAY)
-        if counter>125 and counter in random_counter and counter<frame_count-120:
-            #cv.imshow('frame',frame)
-            path = image_path+'\\'+name_list[i]+'_'+str(counter)+'.jpg'
-            print(path)
-            cv.imwrite(path,gray)
-        if cv.waitKey(int(1000/fps)) & 0xff==ord('q'):
-            break
-        counter += 1
-    cap.release()
-    cv.destroyAllWindows()'''
-
-
-
-
-
