@@ -66,12 +66,8 @@ def evaluate(data, model_path):
             saver.restore(sess, ckpt.model_checkpoint_path)
             global_step = ckpt.model_checkpoint_path.split('/')[-1].split('-')[-1]
             predict_label = sess.run(prediction_labels, feed_dict={x: data})
-            print(predict_label)
-            cartoon_label = list(predict_label).count(0)
-            real_label = list(predict_label).count(1)
             
-            # 打印 label, {0:cartoon, 1: real}
-            print("cartoon: ", cartoon_label, '\n', 'real: ', real_label)  
+            return predict_label
         else:
             print("No checkpoint file found")
             return
@@ -87,7 +83,19 @@ def main(argv=None):
     # 获得神经网络的输入
     data = process_video(video_path)
     
-    evaluate(data, model_path)
+    # 预测标签
+    label = evaluate(data, model_path)
+    
+    print("截取视频帧数：", NUM_IMAGE)
+    print(label)
+    cartoon_label = list(label).count(0)
+    real_label = list(label).count(1)
+    print("cartoon: ", cartoon_label, "帧", '\n', 'real: ', real_label, "帧")
+
+    if cartoon_label > real_label:
+        print("该视频为卡通风格")
+    else:
+        print("该视频为真人风格")
 
 
 if __name__ == '__main__':
