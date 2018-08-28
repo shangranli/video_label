@@ -37,9 +37,17 @@
      
 3. generate_tfrecords.py:   由于训练的图像太多无法同时载入内存训练，所以采用 tfrecord 数据格式保存训练数据。
 
-     所有训练图像在 train_data 路径下，百度网盘地址：
+     所有训练图像在 train_data 路径下，百度网盘地址： https://pan.baidu.com/s/1Z1eN-aYktzY2ei1szfEuaA
      
-     训练数据的 tfrecord 百度网盘：
+     训练数据的 tfrecord 在 train_tfrecords 路径下，百度网盘：https://pan.baidu.com/s/1Ce0VZKKW1A9VGiB6lbXgRQ
+     
+4. video_eval:   验证训练模型效果
+      
+      测试集在 test_data 路径下，网盘地址：https://pan.baidu.com/s/1gPJCGcsfoNs0kkCw-mYdOA
+      
+      测试数据的 tfrecord 在test_records 路径下， 网盘地址：https://pan.baidu.com/s/1aLLknevorOIdL-3YqmN9nQ
+      
+5.  
      
      
      
