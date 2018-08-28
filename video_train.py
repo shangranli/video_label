@@ -17,11 +17,11 @@ REGULARIZATION_RATE = 0.0001
 TRAINING_STEPS = 15001
 MOVING_AVERAGE_DECAY = 0.99
 
-MODEL_SAVE_PATH = "video_model_cartoon/"
-MODEL_NAME = "video_model_carton"
+MODEL_SAVE_PATH = "video_model/"
+MODEL_NAME = "video_model"
 
-orig_path = r'\test_tfrecords'
-train_recorde_path = r"L:\test_tfrecords\train.tfrecord-*"
+orig_path = r'\train_tfrecords'
+train_recorde_path = r"L:\train_tfrecords\train.tfrecord-*"
 # generate_tfrecord(orig_path, train_recorde_path
 
 
