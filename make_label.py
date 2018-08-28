@@ -14,9 +14,10 @@ OUTPUT_NODES = 2    # 类别数
 EVAL_INTERVAL_SECS = 10
 MOVING_AVERAGE_DECAY = 0.99
 
-NUM_IMAGE = 31      # 截取每个视频的帧数
+NUM_IMAGE = 31      # 随机截取每个视频的帧数
 
 
+# 随机截取视频的 NUM_IMAGE 个图像，统一尺寸后放到 data 中，作为神经网络的输入
 def process_video(_video_path):
     data = np.empty((NUM_IMAGE, IMAGE_HIGH, IMAGE_WIDTH, IMAGE_CHANNELS))  #初始化网络输入数据
     cap = cv.VideoCapture(_video_path)
@@ -68,17 +69,24 @@ def evaluate(data, model_path):
             print(predict_label)
             cartoon_label = list(predict_label).count(0)
             real_label = list(predict_label).count(1)
-            print("cartoon: ", cartoon_label, '\n', 'real: ', real_label)
+            
+            # 打印 label, {0:cartoon, 1: real}
+            print("cartoon: ", cartoon_label, '\n', 'real: ', real_label)  
         else:
             print("No checkpoint file found")
             return
 
 
 def main(argv=None):
-    train_recorde_path = r"E:\PychormProjects\video_label\test_tfrecords\test.tfrecord-*"
+    # 训练数据的 tfrecord
+    train_recorde_path = r"E:\PychormProjects\video_label\train_tfrecords\train.tfrecord-*"
+    # 训练模型路径
     model_path = "video_model/"
+    # 视频路径
     video_path = r'L:\ver_video\401.mp4'
+    # 获得神经网络的输入
     data = process_video(video_path)
+    
     evaluate(data, model_path)
 
 
