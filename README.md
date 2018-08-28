@@ -2,7 +2,10 @@
 1.video_train.py: 训练模型，共两类，{0：cartoon（卡通），1：real（真人视频）}
 
      模型已经训练好，模型文件在 video_model 路径下，百度网盘地址：https://pan.baidu.com/s/1a-X4oRkTpW29hEOtKhd3HQ ，
+     
      关于模型的说明：
+     
+     该模型共训练了14000步，每张彩色图片的统一尺寸为：54*96*3，原尺寸为540*960*3，
 
 make_label.py: 判断一个输入视频为的类别，{0：cartoon（卡通），1：real（真人视频）}
 
