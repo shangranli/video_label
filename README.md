@@ -47,7 +47,7 @@
       
       测试数据的 tfrecord 在test_records 路径下， 网盘地址：https://pan.baidu.com/s/1aLLknevorOIdL-3YqmN9nQ
       
-5.  
+5.  eval_video 文件下为测试模型的短视频
      
      
      
