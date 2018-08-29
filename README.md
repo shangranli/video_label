@@ -1,4 +1,7 @@
 # video_label  短视频的粗分类
+
+# leNet-5 模型，2\*(卷积 + 池化) + 全连接层
+
 1. video_train.py:   训练模型，共两类，{0：cartoon（卡通），1：real（真人视频）}
 
      模型已经训练好，模型文件在 video_model 路径下，百度网盘地址：https://pan.baidu.com/s/1a-X4oRkTpW29hEOtKhd3HQ ，
