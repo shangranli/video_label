@@ -1,6 +1,6 @@
 # video_label  短视频的粗分类
 
-# leNet-5 模型，2\*(卷积 + 池化) + 全连接层
+# leNet-5 模型，2\*(卷积 + 池化) + 1\*全连接层
 
 1. video_train.py:   训练模型，共两类，{0：cartoon（卡通），1：real（真人视频）}
 
