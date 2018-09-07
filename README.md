@@ -1,4 +1,4 @@
-# video_label  短视频的粗分类
+# video_label  短视频的分类
 
 # leNet-5 模型，2\*(卷积 + 池化) + 1\*全连接层
 
